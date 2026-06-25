@@ -1,9 +1,7 @@
 [build]
-# Build context must be the repo root so COPY tools/… works
 dockerfilePath = "tools/lead_gen_web/Dockerfile"
 
 [deploy]
-startCommand = "/entrypoint.sh"
 healthcheckPath = "/health"
 healthcheckTimeout = 30
 restartPolicyType = "on_failure"
