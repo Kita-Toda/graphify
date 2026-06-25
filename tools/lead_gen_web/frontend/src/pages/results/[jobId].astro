@@ -4,7 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 const { jobId } = Astro.params;
 const location = Astro.url.searchParams.get('location') ?? '';
 const category = Astro.url.searchParams.get('category') ?? '';
-const api      = Astro.url.searchParams.get('api') ?? 'http://localhost:8000';
+const api      = Astro.url.searchParams.get('api') ?? '';
 ---
 
 <Layout title={`Leads — ${location} ${category}`}>

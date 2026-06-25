@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: spruce-lead-gen
+    runtime: docker
+    # Render must be pointed at the repo root for the COPY context to work.
+    # Set "Root Directory" to "." (repo root) in the Render dashboard,
+    # then set "Dockerfile Path" to tools/lead_gen_web/Dockerfile.
+    dockerfilePath: tools/lead_gen_web/Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: "8080"

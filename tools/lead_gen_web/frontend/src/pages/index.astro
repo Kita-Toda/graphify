@@ -10,7 +10,8 @@ const CATEGORIES = [
   'photographer','butcher',
 ];
 
-const API = import.meta.env.API_URL ?? 'http://localhost:8000';
+// Empty string = relative URLs (production via nginx). Set API_URL=http://localhost:8000 in dev.
+const API = import.meta.env.API_URL ?? '';
 ---
 
 <Layout title="Spruce My Site — Lead Generator">

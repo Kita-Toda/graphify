@@ -21,7 +21,13 @@ from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 
 # Allow importing from repo root
-sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+# Walk up from this file until we find the directory that contains tools/lead_gen/
+_here = Path(__file__).resolve()
+_repo = next(
+    (p for p in _here.parents if (p / "tools" / "lead_gen" / "lead_gen.py").exists()),
+    _here.parent.parent,
+)
+sys.path.insert(0, str(_repo))
 from tools.lead_gen.lead_gen import (
     CATEGORIES,
     SPRUCE_SERVICES,
