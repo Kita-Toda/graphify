@@ -1,0 +1,51 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = 'Spruce My Site — Lead Generator',
+  description = 'Find local businesses with weak websites and map their tech stack.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={description} />
+  <title>{title}</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Nav -->
+  <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center gap-3">
+      <a href="/" class="flex items-center gap-2 group">
+        <span class="text-blue-500 font-black text-xl tracking-tight group-hover:text-blue-400 transition-colors">
+          Spruce<span class="text-slate-200">MySite</span>
+        </span>
+        <span class="hidden sm:inline text-slate-500 text-sm font-medium">/ Lead Generator</span>
+      </a>
+      <div class="ml-auto flex items-center gap-4 text-sm text-slate-400">
+        <a href="/" class="hover:text-slate-200 transition-colors">New Scan</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page content -->
+  <main class="flex-1">
+    <slot />
+  </main>
+
+  <footer class="border-t border-slate-800 py-4 text-center text-xs text-slate-600">
+    Spruce My Site Lead Generator &nbsp;·&nbsp;
+    Business data © <a href="https://www.openstreetmap.org/copyright" class="hover:text-slate-400 transition-colors">OpenStreetMap</a> contributors (ODbL)
+  </footer>
+
+</body>
+</html>
